@@ -37,6 +37,7 @@ for (let i = 0; i < emails.length; i++) {
 }
 
 // Stampo un messaggio in console con l'esito
+// Stampo in pagina
 if (result) {
     title.innerHTML = "Complimenti";
     message.innerHTML = "sei un utente regitrato";
@@ -48,10 +49,6 @@ if (result) {
     sign.innerHTML = "Registrati per accedere";
     console.log("Non sei un utente registrato");
 }
-
-// Stampo in pagina
-
-
 
 // Velocizzando il for
 // const foundEmail = emails.includes(address);
