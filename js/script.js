@@ -18,12 +18,24 @@ console.log(`la tua email è ${address}`);
 
 // Creo un array
 // Controllo che l'email inserita dall'utente sia presente nella lista
-const emails = ['laura@hotmail.it' , 'marco@yahoo.com' , 'peppino@libero.it' , 'antonio@outlook.com' , 'cesare@alicemail.it'].includes(`${address}`);
-console.log(emails);
+const emails = ['laura@hotmail.it' , 'marco@yahoo.com' , 'peppino@libero.it' , 'antonio@outlook.com' , 'cesare@alicemail.it'];
+
+let result ='';
 
 // Stampo un messaggio in console con l'esito
-if (~`${address}`.indexOf) {
-    console.log("Sei un utente registrato");
-} else {
+for (let i = 0; i < emails.lenght; i++) {
+    let currentEmail = emails[i];
+    
+    if (currentEmail === address) {
+        result = "Sei un utente registrato";
+        console.log("Sei un utente registrato");
+    } else {
+        result = "Non sei un utente registrato";
         console.log("Non sei un utente registrato");
+    }
 }
+
+console.log(`result a fine ciclo:`, result)
+
+// Velocizzando il for
+// const foundEmail = emails.includes(address);
