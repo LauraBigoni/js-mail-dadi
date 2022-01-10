@@ -12,30 +12,46 @@ controlla che sia nella lista di chi può accedere, stampa un messaggio appropri
 // 4 - Stampare un messaggio in console con l'esito
 // 5 - Stampare in pagina
 
+
+// Recupero l'elemento in pagina 
+const message = document.getElementById('messagemail');
+const title = document.getElementById('messagetitle');
+const sign = document.getElementById('sign-up-in');
+
+// Creo un array
+const emails = ['laura@hotmail.it' , 'marco@yahoo.com' , 'peppino@libero.it' , 'antonio@outlook.com' , 'cesare@alicemail.it'];
+
 // Chiedo all'utente l'email
 let address = prompt('Inserisci il tuo indirizzo email' , 'laura@hotmail.it').trim();
 console.log(`la tua email è ${address}`);
 
-// Creo un array
 // Controllo che l'email inserita dall'utente sia presente nella lista
-const emails = ['laura@hotmail.it' , 'marco@yahoo.com' , 'peppino@libero.it' , 'antonio@outlook.com' , 'cesare@alicemail.it'];
+let result = false;
 
-let result ='';
+for (let i = 0; i < emails.length; i++) {
+    const currentEmail = emails[i];
 
-// Stampo un messaggio in console con l'esito
-for (let i = 0; i < emails.lenght; i++) {
-    let currentEmail = emails[i];
-    
     if (currentEmail === address) {
-        result = "Sei un utente registrato";
-        console.log("Sei un utente registrato");
-    } else {
-        result = "Non sei un utente registrato";
-        console.log("Non sei un utente registrato");
+        result = true;
     }
 }
 
-console.log(`result a fine ciclo:`, result)
+// Stampo un messaggio in console con l'esito
+if (result) {
+    title.innerHTML = "Complimenti";
+    message.innerHTML = "sei un utente regitrato";
+    sign.innerHTML = "Entra nel sito"
+    console.log("sei un utente regitrato");
+} else {
+    title.innerHTML = "Ci dispiace";
+    message.innerHTML = "Non sei un utente registrato";
+    sign.innerHTML = "Registrati per accedere";
+    console.log("Non sei un utente registrato");
+}
+
+// Stampo in pagina
+
+
 
 // Velocizzando il for
 // const foundEmail = emails.includes(address);
